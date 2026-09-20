@@ -19,7 +19,7 @@ class Solution {
         String result = "";
 
         for (int i = 0; i < romanMap.size(); i++) {
-            while (num / numbers[i] > 0) {
+            while (num >= numbers[i]) {
                 result += romanMap.get(numbers[i]);
                 num -= numbers[i];
             }
