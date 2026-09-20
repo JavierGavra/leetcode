@@ -1,21 +1,17 @@
 class Solution {
     public int reverse(int x) {
-        String number = x + "";
-        String result = "";
-
-        char[] digits = number.toCharArray();
-
-        for (int i = digits.length - 1; i >= 0; i--) {
-            if (digits[i] == '-') {
-                result = digits[i] + result;
-                break;
-            }
-
-            result += digits[i];
+        StringBuilder number = new StringBuilder();
+        number.append(x);
+        
+        number.reverse();
+        
+        if (number.charAt(number.length() - 1) == '-') {
+            number.deleteCharAt(number.length() - 1);
+            number.insert(0, '-');
         }
-
+        
         try {
-            return Integer.parseInt(result);
+            return Integer.parseInt(number.toString());
         } catch (NumberFormatException e) {
             return 0;
         }
